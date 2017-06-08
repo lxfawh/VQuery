@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VQuery</title>
+    <script src="VQuery.js"></script>
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tab-con {
+            margin: 100px 300px;
+            position: relative
+        }
+
+        li {
+            float: left;
+            background: #545660;
+            color: #fff;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            padding: 0px 40px;
+            margin-right: 2px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            cursor: pointer;
+        }
+
+        p {
+            margin: 10px;
+            font-size: 14px;
+        }
+
+        p img {
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .tabin {
+            background: #fff;
+            color: #545660;
+            border: 1px #545660 solid;
+            border-bottom: none;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .content {
+            clear: both;
+            display: none;
+            width: 500px;
+            min-height: 300px;
+            border: 1px solid #545660;
+            position: absolute;
+            top: 39px;
+            z-index: -99;
+            border-radius: 4px;
+            border-top-left-radius: 0px;
+        }
+
+        /*.active {
+
+            display: block;
+        }*/
+    </style>
+</head>
+
+<body>
+    <div class="tab-con">
+        <ul class="tab-tit">
+            <li class="tabin">图文</li>
+            <li>说明</li>
+            <li>评论</li>
+        </ul>
+        <div class="content">
+
+            <p><img src="codeguide.png">虽然可以直接使用 Bootstrap 提供的 CSS 样式表，不要忘记 Bootstrap 的源码是基于最流行的 CSS 预处理脚本 - Less 和 Sass 开发的。你可以采用预编译的
+                CSS 文件快速开发，也可以从源码定制自己需要的样式。虽然可以直接使用 Bootstrap 提供的 CSS 样式表，不要忘记 Bootstrap 的源码是基于最流行的 CSS 预处理脚本 - Less 和 Sass
+                开发的。你可以采用预编译的 CSS 文件快速开发，也可以从源码定制自己需要的样式。</p>
+        </div>
+        <div class="content">
+            <p>你的网站和应用能在 Bootstrap 的帮助下通过同一份代码快速、有效适配手机、平板、PC 设备，这一切都是 CSS 媒体查询（Media Query）的功劳。</p>
+        </div>
+        <div class="content">
+            <p>Bootstrap 提供了全面、美观的文档。你能在这里找到关于 HTML 元素、HTML 和 CSS 组件、jQuery 插件方面的所有详细文档。</p>
+        </div>
+    </div>
+    <script>
+        $('.content').eq(0).show();
+        $('li').on('click', function () {
+            $('li').attr('className', '');
+            $(this).attr('className', 'tabin');
+            $('.content').hide();
+            $('.content').eq($(this).index()).show();
+        })
+    </script>
+</body>
+
+</html>
